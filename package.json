@@ -1,0 +1,23 @@
+{
+  "name": "learns-vues",
+  "version": "1.0.0",
+  "description": "the code notes about vue series.",
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": "https://github.com/istomyang/learns-vue",
+  "author": "Tom Yang <yangyang@live.in>",
+  "license": "GPL-2.0 License",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "lerna": "^3.22.1",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "vue": "^2.6.12"
+  }
+}

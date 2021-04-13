@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEST</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="wrapper">
+        <div class="setting" :class="{isopen:isOpen}">
+          <div class="b" @click="c"></div>
+          <div class="body" v-show="isShow">13</div>
+        </div>
+        <div class="content"></div>
+      </div>
+    </div>
+
+    <script>
+      new Vue({
+        data() {
+          return {
+            isOpen: false,
+            isShow: false,
+          }
+        },
+        methods: {
+          c() {
+            this.isOpen = !this.isOpen
+            this.isShow = !this.isShow
+          },
+        },
+      }).$mount('#app')
+    </script>
+
+    <style>
+      html,
+      body,
+      #app {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .wrapper {
+        height: 600px;
+        width: 500px;
+        border: 1px solid pink;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .setting {
+        flex: 0 0 auto;
+        align-self: flex-end;
+        position: relative;
+        border: 1px dashed yellow;
+        height: 0px;
+      }
+
+      .setting.isopen {
+        height: 400px;
+        overflow: scroll;
+      }
+
+      .b {
+        height: 32px;
+        width: 32px;
+        background-color: green;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        z-index: 999;
+      }
+
+      .body {
+        height: 200px;
+        width: 200px;
+        background-color: rgb(163, 214, 129);
+      }
+
+      .content {
+        flex: 1 1 auto;
+        background-color: rgb(175, 168, 219);
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "server1",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev:start": "node index.js",
+    "es-checker":"npx es-checker"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server-express": "^2.21.2",
+    "express": "^4.17.1",
+    "graphql": "^15.5.0",
+    "mongoose": "^5.12.2",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "es-checker": "^1.4.2"
+  }
+}

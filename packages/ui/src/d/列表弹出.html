@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEST</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div
+        class="category"
+        :class="{ desktop: isDesktop, nodesktop: !isDesktop }"
+      >
+        <div
+          class="title-bar"
+          @click="switching"
+          :class="{ expanded: expanded, noexpanded: !expanded }"
+        >
+          <div class="pre"></div>
+          <p class="title">title</p>
+          <div class="down-arrow" v-show="expanded"></div>
+        </div>
+        <transition name="list">
+          <div class="body" v-show="expanded">
+            <div class="demo">
+              <div class="icon"></div>
+              <div class="content">
+                <h2 class="title">App bar</h2>
+                <p class="desc">这里是描述信息</p>
+              </div>
+            </div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+          </div>
+        </transition>
+      </div>
+    </div>
+
+    <script>
+      new Vue({
+        data() {
+          return {
+            isDesktop: false,
+            expanded: false,
+          }
+        },
+        methods: {
+          switching() {
+            this.expanded = !this.expanded
+          },
+        },
+      }).$mount('#app')
+
+      let nodeList = document.querySelectorAll('.item')
+      // console.log(nodeList);
+      randomColorWithNodeList(nodeList)
+
+      function randomColorWithNodeList(nodeList) {
+        // return rgb(0,0,0)
+        const randColor = () => {
+          let r = Math.floor(Math.random() * (225 - 0 + 1)) + 0
+          let g = Math.floor(Math.random() * (225 - 0 + 1)) + 0
+          let b = Math.floor(Math.random() * (225 - 0 + 1)) + 0
+          return `rgb(${r},${g},${b})`
+        }
+
+        Object.values(nodeList).forEach(el => {
+          el.style.backgroundColor = randColor()
+        })
+      }
+    </script>
+
+    <style>
+      #app {
+        border: 2px dashed pink;
+        margin: 10px 10px;
+      }
+
+      .category {
+        background-color: rgba(206, 152, 152, 0.212);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+      }
+
+      .title-bar {
+        background-color: rgba(171, 216, 135, 0.507);
+        flex: 0 0 auto;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        height: 50px;
+        transition: all .2s ease-out;
+      }
+
+      .title-bar.expanded {
+        margin: 10px 0px;
+        border-radius: 0px;
+        height: 60px;
+      }
+
+      .title-bar.noexpanded {
+        margin: 10px 10px;
+      }
+
+      .title-bar .pre {
+        background-color: rgb(101, 136, 200);
+        height: 32px;
+        width: 32px;
+        margin: 5px 5px;
+        border-radius: 50%;
+        flex: 0 0 auto;
+      }
+      .title-bar .title {
+        font-size: 32px;
+        margin: 0px 10px;
+      }
+      .title-bar .down-arrow {
+        margin-right: 20px;
+        margin-left: auto;
+        width: 10px;
+        height: 10px;
+        border-right: 3px solid rgb(104, 122, 221);
+        border-bottom: 3px solid rgb(104, 122, 221);
+        border-left-color: transparent;
+        border-top-color: transparent;
+        transform: rotate(45deg);
+        margin-bottom: 2px;
+      }
+      .body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+      }
+
+      .body .item {
+        height: 50px;
+        margin: 5px 0px;
+      }
+
+      .list-enter-active,
+      .list-leave-active {
+        transition: all .1s ease-out;
+      }
+      .list-enter,
+      .list-leave-to {
+        opacity: 0;
+      }
+
+      .body .demo {
+        height: 50px;
+      }
+
+      .body .demo {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .demo .icon {
+        height: 16px;
+        width: 16px;
+        background-color: rgb(121, 123, 207);
+        margin: 0px 20px;
+      }
+
+      .demo .content {
+        flex: 1 1 auto;
+        margin-right: 14px;
+        border-bottom: 2px solid rgba(173, 143, 143, 0.582);
+      }
+
+      .demo .content > * {
+        margin: 0px;
+       
+      }
+
+      .demo .content .title {
+        font-size: 18px;
+        font-weight: 400;
+      }
+
+      .demo .content .desc {
+        font-size: 12px;
+        color: rgb(199, 167, 167);
+      }
+ 
+    </style>
+  </body>
+</html>

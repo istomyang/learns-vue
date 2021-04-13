@@ -1,0 +1,53 @@
+<svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" @click="start" ref="svg1"
+	id="svg1">
+	<title>setting_icon</title>
+	<desc>Design by: https://gallery.flutter.dev/#/</desc>
+
+	<defs>
+		<linearGradient id="Gradient1">
+			<stop offset="0%" stop-color="#ff7d86" />
+			<stop offset="100%" stop-color="#ff5f85" />
+		</linearGradient>
+		<linearGradient id="Gradient2">
+			<stop offset="0%" stop-color="#00dac7" />
+			<stop offset="100%" stop-color="#00a7b1" />
+		</linearGradient>
+	</defs>
+
+	<!-- 上杆,彩色部分 -->
+	<rect x="8" y="25" width="82" height="18" rx="9" fill="url(#Gradient1)" transform="scale(-1 1) translate(-98 0)">
+		<animate attributeName="width" attributeType="XML" from="80" to="18" begin="svg1.click+0.2s" dur="0.8s"
+			fill="freeze" id="up1" />
+		<animate attributeName="opacity" attributeType="XML" from="1" to="0" begin="up1.end" dur=".1s" fill="freeze"
+			id="up2" />
+	</rect>
+
+	<!-- 上杆, 黑色部分 -->
+	<rect x="10" y="27" width="14" height="14" rx="7" ry="7" fill="black">
+		<animate attributeName="x" attributeType="XML" from="10" to="8" begin="svg1.click+0s" dur="0.2s" fill="freeze" />
+
+		
+		<animate attributeName="width" attributeType="XML" from="14" to="78" begin="svg1.click+0s" dur="1s" fill="freeze" />
+
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" from="0 0" to="0 16"
+			begin="up2.end" dur="0.5s" repeatCount="1" additive="sum" fill="freeze" />
+		<animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 49 34" to="45 49 34"
+			dur="0.5s" begin="up2.end" repeatCount="1" additive="sum" fill="freeze" />
+	</rect>
+
+	<rect x="8" y="57" width="82" height="18" rx="9" fill="url(#Gradient2)">
+		<animate attributeName="width" attributeType="XML" from="80" to="18" begin="svg1.click+0.2s" dur="0.8s"
+			fill="freeze" />
+		<animate attributeName="opacity" attributeType="XML" from="1" to="0" begin="up1.end" dur=".1s" fill="freeze" />
+	</rect>
+
+	<!-- 下杆,黑色 -->
+	<rect x="10" y="59" width="14" height="14" rx="7" ry="7" fill="black" transform="scale(-1 1) translate(-98 0)">
+		<animate attributeName="x" attributeType="XML" from="10" to="8" begin="svg1.click+0s" dur="0.2s" fill="freeze" />
+		<animate attributeName="width" attributeType="XML" from="14" to="82" begin="svg1.click+0s" dur="1s" fill="freeze" />
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" from="0 0" to="0 -16"
+			begin="up2.end" dur="0.5s" repeatCount="1" additive="sum" fill="freeze" />
+		<animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 49 66" to="45 49 66"
+			dur="0.5s" begin="up2.end" repeatCount="1" additive="sum" fill="freeze" />
+	</rect>
+</svg>

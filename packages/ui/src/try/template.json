@@ -1,0 +1,12 @@
+{
+  "en": {
+    "about": "About",
+    "feedback": "Send Feedback",
+    "designby": "Design by Flutter Gallery"
+  },
+  "zh": {
+    "about": "关于 Learns-vues",
+    "feedback": "发送反馈",
+    "designby": "灵感来自Flutter Gallery"
+  }
+}
