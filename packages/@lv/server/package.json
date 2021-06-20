@@ -1,0 +1,39 @@
+{
+  "name": "@lv/server",
+  "description": "All support for learns-vues's backend.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "yarn run nodemon -e ts -x node_modules/.bin/ts-node -r tsconfig-paths/register src/main.ts",
+    "server:start:warning":"node --trace-warnings -r ts-node/register -r tsconfig-paths/register src/main.ts",
+    "build": "yarn run tsc --build tsconfig.json"
+  },
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "@lv/server-addon-github": "1.0.0",
+    "lowdb": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/koa__router": "^8.0.4",
+    "@types/node": "^14.14.41",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.2.4"
+  },
+  "nodemonConfig": {
+    "ignoreRoot": [
+      ".git"
+    ],
+    "delay": 2500,
+    "start": "cls || clear"
+  }
+}

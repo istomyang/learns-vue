@@ -1,0 +1,8 @@
+{
+  "name": "Demos-Server-Graphql",
+  "includes": ["apollo-server/**/*"],
+  "extensions": {
+    "endpoints": {
+    }
+  }
+}

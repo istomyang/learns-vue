@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "paths": {
+      "@@controller/*": ["src/controller/*"],
+      "@@data/*": ["src/data/*"],
+      "@@model/*": ["src/model/*"],
+      "@@router/*": ["src/router/*"],
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts",
+    "typings/**/*.ts",
+    "src/**/*.js"
+, "src/controller/db.ts", "src/controller/authorize.ts"  ],
+  "exclude": [".eslintrc.js","node_modules"]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "demos-ui-vue",
+  "includes": ["./**/*.gql"],
+  "extensions": {
+    "endpoints": {
+      "A": {
+        "url": "http://localhost:4000/graphql-github",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": false
+      }
+    }
+  }
+}

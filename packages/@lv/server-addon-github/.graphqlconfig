@@ -1,0 +1,8 @@
+{
+  "name": "Server-Github",
+  "includes": ["src/**/*.ts","src/**/*.gql"],
+  "extensions": {
+    "endpoints": {
+    }
+  }
+}

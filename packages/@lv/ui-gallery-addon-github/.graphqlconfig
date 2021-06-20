@@ -1,0 +1,15 @@
+{
+  "name": "@lv/ui-github",
+  "includes": ["./src/gql/*"],
+  "extensions": {
+    "endpoints": {
+      "@lv/Server": {
+        "url": "http://localhost:4000/graphql-github",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": false
+      }
+    }
+  }
+}

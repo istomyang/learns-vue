@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "the code notes about vue series.",
   "workspaces": [
-    "packages/*"
+    "packages/@lv/*",
+    "packages/demos/*"
   ],
   "repository": "https://github.com/istomyang/learns-vue",
   "author": "Tom Yang <yangyang@live.in>",

@@ -1,0 +1,20 @@
+{
+  "name": "@demos/server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "demo-s-start": "node index.js"
+  },
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "apollo-server": "^2.25.1",
+    "apollo-server-express": "^2.25.1",
+    "apollo-server-koa": "^2.25.1",
+    "graphql": "^15.5.0",
+    "graphql-scalars": "^1.9.3",
+    "highlight.js": "^11.0.1",
+    "koa": "^2.13.1",
+    "moment": "^2.29.1"
+  }
+}

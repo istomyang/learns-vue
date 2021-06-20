@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Statistic">
+    <option name="excludedDirectories">
+      <list>
+        <option value="$PROJECT_DIR$/node_modules" />
+        <option value="$PROJECT_DIR$/packages/@demos/server/node_modules" />
+        <option value="$PROJECT_DIR$/packages/@demos/ui-vue/node_modules" />
+        <option value="$PROJECT_DIR$/packages/@lv/server-addon-github/node_modules" />
+        <option value="$PROJECT_DIR$/packages/@lv/shared/node_modules" />
+        <option value="$PROJECT_DIR$/packages/@demos/@111/node_modules" />
+        <option value="$PROJECT_DIR$/packages/@lv/lowdb/node_modules" />
+      </list>
+    </option>
+  </component>
+</project>

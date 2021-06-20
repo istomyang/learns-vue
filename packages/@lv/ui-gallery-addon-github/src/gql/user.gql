@@ -1,0 +1,64 @@
+# https://github.com/apollographql/graphql-tag
+
+query GetLoginUserList {
+  allUserSimpleInfo {
+    name
+    login
+    avatar_url
+  }
+}
+
+query GetAvatarUri($username:String!) {
+  getProfileData(username:$username){
+    avatar_url
+  }
+}
+
+query GetProfile($username:String!) {
+  getProfileData(username:$username){
+    login
+    avatar_url
+    name
+    bio
+    location
+    email
+    public_repos
+    total_private_repos
+    followers
+    following
+    stars {
+      name
+    }
+  }
+}
+
+
+query GetStarRepoInfo($username:String!) {
+  getProfileData(username:$username){
+    stars {
+      name
+      description
+      language
+    }
+  }
+}
+
+mutation Login($username: String!, $client_id: String, $client_secret: String) {
+  login(
+    username: $username
+    client_id: $client_id
+    client_secret: $client_secret
+  )
+}
+
+mutation Logout($username: String!) {
+  logout(username: $username)
+}
+
+subscription Token {
+  waitToken
+}
+
+subscription Init {
+  waitInit
+}

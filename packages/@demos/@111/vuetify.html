@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>Test Vuetify</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+    <!-- <link
+href="https://fonts.googleapis.com/css?family=Material+Icons"
+rel="stylesheet"
+/> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+
+    <style>
+      .container {
+        position: relative;
+        height: 500px;
+        width: 500px;
+        border: #2c3e50 2px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <v-app>
+        <v-treeview
+          :active.sync="active"
+          v-model="tree"
+          :items="items"
+          :open.sync="open"
+          activatable
+          item-key="name"
+          open-on-click
+          transition
+          :load-children="getLayer"
+        >
+          <template v-slot:prepend="{ item, open, active }">
+            <v-icon v-if="!item.file">
+              {{ open ? 'mdi-folder-open' : 'mdi-folder' }}
+            </v-icon>
+            <v-icon v-else> {{ files[item.file] }} </v-icon>
+          </template>
+        </v-treeview>
+      </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: () => ({
+          initiallyOpen: ['public'],
+          files: {
+            html: 'mdi-language-html5',
+            js: 'mdi-nodejs',
+            json: 'mdi-code-json',
+            md: 'mdi-language-markdown',
+            pdf: 'mdi-file-pdf',
+            png: 'mdi-file-image',
+            txt: 'mdi-file-document-outline',
+            xls: 'mdi-file-excel',
+          },
+          tree: [],
+          items: [
+            {
+              name: '.git',
+            },
+            {
+              name: 'node_modules',
+            },
+            {
+              name: 'public',
+              children: [
+                {
+                  name: 'static',
+                  children: [
+                    {
+                      name: 'logo.png',
+                      file: 'png',
+                    },
+                  ],
+                },
+                {
+                  name: 'favicon.ico',
+                  file: 'png',
+                },
+                {
+                  name: 'index.html',
+                  file: 'html',
+                },
+              ],
+            },
+            {
+              name: '.gitignore',
+              file: 'txt',
+            },
+            {
+              name: 'babel.config.js',
+              file: 'js',
+            },
+            {
+              name: 'package.json',
+              file: 'json',
+            },
+            {
+              name: 'README.md',
+              file: 'md',
+            },
+            {
+              name: 'vue.config.js',
+              file: 'js',
+            },
+            {
+              name: 'yarn.lock',
+              file: 'txt',
+            },
+          ],
+        }),
+
+        computed: {},
+
+        watch: {},
+        methods: {},
+        vuetify: new Vuetify(),
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+query GetReposList($username: String!) {
+  getUserReposFullName(username: $username)
+}
+
+query GetUserRepos($username: String!) {
+  getUserRepos(username: $username){
+    name
+    fullname
+    description
+    language
+  }
+}
+
+query GetRepoInfo($reponame: String!) {
+  getUserRepo(repoFullName: $reponame){
+    name
+    login
+    fullname
+    private
+    fork
+    description
+    homepage
+    stargazers_count
+    language
+    forks_count
+    watchers_count
+    license
+    forked_from
+    branches
+  }
+}
+
+query GetRepoReadMe($reponame: String!) {
+  getReadMe(repoFullName: $reponame)
+}
+
+query OpenDirectory($uri:String){
+  getTreeLayer(uri:$uri)
+}
+
+query GetFileContent($uri:String!,$type:String){
+  getFileContent(uri: $uri, type: $type)
+}
