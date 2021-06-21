@@ -36,4 +36,4 @@ for (let i = 0; i < 20; i++) {
 
 console.log('处理好的gallery', galleries)
 
-export default { ...galleries }
+export default [ ...galleries ]
