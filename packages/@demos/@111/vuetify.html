@@ -36,26 +36,12 @@ rel="stylesheet"
   </head>
   <body>
     <div id="app">
-      <v-app>
-        <v-treeview
-          :active.sync="active"
-          v-model="tree"
-          :items="items"
-          :open.sync="open"
-          activatable
-          item-key="name"
-          open-on-click
-          transition
-          :load-children="getLayer"
+      <h1>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver"
+          >11</a
         >
-          <template v-slot:prepend="{ item, open, active }">
-            <v-icon v-if="!item.file">
-              {{ open ? 'mdi-folder-open' : 'mdi-folder' }}
-            </v-icon>
-            <v-icon v-else> {{ files[item.file] }} </v-icon>
-          </template>
-        </v-treeview>
-      </v-app>
+      </h1>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>

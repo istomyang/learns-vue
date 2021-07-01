@@ -10,8 +10,15 @@ import { mapState } from 'vuex'
 
 export default {
   inject: ['info_data'],
+  data() {
+    return {
+      init: false,
+    }
+  },
   computed: {
-    ...mapState({ id: 'current_demo_preview' }),
+    ...mapState({
+      id: 'current_demo_preview',
+    }),
     component() {
       return this.info_data.previews[this.id].componentName
     },

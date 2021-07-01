@@ -7,7 +7,7 @@
       nodesktop: !isDesktop,
     }"
   >
-    <img alt="Vue logo" src="../assets/logo.png" class="img" />
+    <img alt="Vue logo" src="../assets/logo.png" class="logo" />
     <div class="title">{{ $t('public.app_name') }}</div>
   </div>
 </template>
@@ -47,7 +47,7 @@ export default {
     color #ffffff
     font-size $fz-splash-title
     font-family $ff-splash-title
-  & > .img
+  & > .logo
     margin 10px
     width 34px
   &.nodesktop
@@ -56,6 +56,6 @@ export default {
     flex-direction column
     // 高度确定,可以是百分比
     height 80%
-  &.expanded > .img
+  &.expanded > .logo
     width 72px
 </style>

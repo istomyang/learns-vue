@@ -1,4 +1,5 @@
 import default_example from './default'
+import product from '@lv/ui-category-addon-product'
 
 let key = 0
 
@@ -7,7 +8,7 @@ const infos = {}
 
 const example = Object.values(default_example)
 
-;[...example].forEach(category => {
+;[product, ...example].forEach(category => {
   // 列表，无需查询
   let category_demos = []
   // 后期需要查询，使用map对象
@@ -20,6 +21,7 @@ const example = Object.values(default_example)
       name: demo.demo_name,
       summary: demo.demo_summary,
       icon: demo.demo_icon,
+      previewsId: demo.previewsId,
     })
 
     // 处理info界面的数据

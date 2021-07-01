@@ -1,14 +1,14 @@
 export default {
   // id用于标识demo唯一
-  id: 'example1',
+  id: 'lazy-load',
   // demo 展示页的选项
   demo_name: {
-    zh: '示例选项1',
-    en: 'example demo1',
+    zh: '懒加载',
+    en: 'Lazy Loading',
   },
   demo_summary: {
-    zh: '八百里分麾下炙，五十弦翻塞外声，沙场秋点兵。',
-    en: 'Vue.js is an open-source MVVM front end JavaScript framework',
+    zh: '图片懒加载',
+    en: 'Lazy loading of pic',
   },
   demo_icon: 'home',
   // info页面

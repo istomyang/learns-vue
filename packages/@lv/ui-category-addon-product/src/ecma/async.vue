@@ -1,6 +1,6 @@
 <template>
   <div class="preview">
-    <div class="box"></div>
+    
   </div>
 </template>
 
@@ -8,12 +8,12 @@
 export default {
   meta: {
     option_title: {
-      zh: '示范预览1',
-      en: 'Preview1',
+      zh: '异步',
+      en: 'Async',
     },
     preview_title: {
-      zh: '示范预览1',
-      en: 'Preview1',
+      zh: '异步',
+      en: 'Async',
     },
   },
 }

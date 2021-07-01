@@ -35,7 +35,9 @@ function genDemos(count) {
   for (let i = 0; i < count; i++) {
     const rawId = category_demo.id
     let id = `${rawId}${i}`
-    let newObj = { id }
+    const previews = category_demo.previews
+    const previewsId = Object.values(previews).map(p => p.id)
+    let newObj = { id, previewsId }
     _demos[id] = concat(newObj, category_demo)
   }
   return _demos

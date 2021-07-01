@@ -16,6 +16,7 @@
           :summary="d.summary"
           :icon="d.icon"
           :categoryid="id"
+          :previewsId="d.previewsId"
         />
       </div>
     </transition>

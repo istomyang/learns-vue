@@ -27,3 +27,5 @@ Vue.use(Icon)
 // categories
 import ce from '@lv/ui-category-addon-example'
 Vue.use(ce)
+import product from '@lv/ui-category-addon-product'
+Vue.use(product)

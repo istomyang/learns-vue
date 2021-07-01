@@ -20,11 +20,15 @@ export default {
       type: String,
       default: 'face',
     },
+    previewsId: Array,
   },
 
   components: { Icon },
   methods: {
     handleClick() {
+      const first = this.previewsId[0]
+      this.$store.dispatch('switch_preview', first)
+      // this.$store.
       this.$router.push({
         path: `/home/categories/${this.categoryid}/${this.id}`,
       })
