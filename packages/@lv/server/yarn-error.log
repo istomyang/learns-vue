@@ -1,48 +1,45 @@
 Arguments: 
-  /usr/bin/node /usr/local/bin/yarn workspace @lv/gallery-github-server install
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js run server:start:warning
 
 PATH: 
-  /home/tom/ws/vues/learns-vue/node_modules/.bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/tom/bin:/home/tom/flutter/bin:/mnt/data/android/platform-tools:/home/tom/Deno
+  C:\Program Files\Python38\Scripts\;C:\Program Files\Python38\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Users\yangy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\JetBrains\WebStorm 2021.1.2\bin;C:\Users\yangy\dev\mongodb;C:\Program Files\Git\cmd;C:\Users\yangy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\JetBrains\WebStorm 2021.1.2\bin;;C:\Users\yangy\dev\nvm;C:\Program Files\nodejs;C:\Users\yangy\dev\yarn\bin;C:\Users\yangy\dev\mongodb\bin;
 
 Yarn version: 
   1.22.10
 
 Node version: 
-  14.16.0
+  16.3.0
 
 Platform: 
-  linux x64
+  win32 x64
 
 Trace: 
-  SyntaxError: /mnt/data/ws/vues/learns-vue/packages/@lv/gallery-github-server/package.json: Unexpected token } in JSON at position 416
+  SyntaxError: D:\dev\learns-vue\packages\@lv\server\package.json: Unexpected token } in JSON at position 548
       at JSON.parse (<anonymous>)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:1625:59
+      at C:\Users\yangy\dev\nvm\v16.3.0\node_modules\yarn\lib\cli.js:1625:59
       at Generator.next (<anonymous>)
-      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:321:13
+      at step (C:\Users\yangy\dev\nvm\v16.3.0\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\yangy\dev\nvm\v16.3.0\node_modules\yarn\lib\cli.js:321:13
 
 npm manifest: 
   {
-    "name": "@lv/gallery-github-server",
+    "name": "@lv/server",
+    "description": "All support for learns-vues's backend.",
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
     "private": true,
     "scripts": {
-      "start": "yarn run nodemon -e ts -x node_modules/.bin/ts-node main.ts"
+      "start": "yarn run nodemon -e ts -x node_modules/.bin/ts-node -r tsconfig-paths/register src/main.ts",
+      "server:start:warning":"node --trace-warnings -r ts-node/register -r tsconfig-paths/register src/main.ts",
+      "build": "yarn run tsc --build tsconfig.json"
     },
-    "dependencies1": {
+    "dependencies": {
       "@koa/router": "^10.0.0",
-      "apollo-datasource-rest": "^0.12.0",
-      "apollo-server": "^2.23.0",
-      "graphql": "^15.5.0",
-      "koa": "^2.13.1",
-      "lowdb": "^1.0.0",
+      "@lv/server-addon-github": "1.0.0",
     },
     "devDependencies": {
-      "@types/koa": "^2.13.1",
-      "@types/koa-router": "^7.4.2",
-      "@types/lowdb": "^1.0.9",
+      "@types/koa__router": "^8.0.4",
       "@types/node": "^14.14.41",
       "@typescript-eslint/eslint-plugin": "^4.22.0",
       "@typescript-eslint/parser": "^4.22.0",
@@ -52,7 +49,15 @@ npm manifest:
       "nodemon": "^2.0.7",
       "prettier": "^2.2.1",
       "ts-node": "^9.1.1",
+      "tsconfig-paths": "^3.9.0",
       "typescript": "^4.2.4"
+    },
+    "nodemonConfig": {
+      "ignoreRoot": [
+        ".git"
+      ],
+      "delay": 2500,
+      "start": "cls || clear"
     }
   }
 

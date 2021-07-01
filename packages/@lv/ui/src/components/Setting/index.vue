@@ -16,6 +16,7 @@
         ref="settingBody"
         :class="[isDesktop ? 'desktop' : 'nodesktop']"
         v-show="handle"
+        @mouseleave="mouseGo"
       >
         <div class="title">{{ $t('caption') }}</div>
         <OptionsGroup />
@@ -56,6 +57,17 @@ export default {
   methods: {
     switchOpen() {
       this.isOpen = !this.isOpen
+      console.log(222)
+    },
+    mouseGo() {
+      const that = this
+      document.body.addEventListener(
+        'click',
+        function () {
+          that.isOpen = false
+        },
+        { once: true }
+      )
     },
   },
   computed: {
@@ -162,7 +174,7 @@ export default {
     margin-top 45px
     margin-bottom 10px
   &.nodesktop > .title
-    font-size $fz-setting-nodesk-title 
+    font-size $fz-setting-nodesk-title
 
 .wrapper
   margin 15px 0px
@@ -178,6 +190,11 @@ export default {
   font-size 1.8em
   font-weight normal
   margin 15px auto auto 20px
+
+.box
+  width: 50px
+  height: 50px
+  background-color: #a15151
 </style>
 
 <i18n>

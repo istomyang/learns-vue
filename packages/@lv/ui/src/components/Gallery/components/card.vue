@@ -121,7 +121,7 @@ export default {
       }
     },
     click() {
-      this.$router.push({ path: `${this.router}` })
+      this.router && this.$router.push({ path: `${this.router}` })
     },
   },
   created() {

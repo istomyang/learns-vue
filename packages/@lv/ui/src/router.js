@@ -33,11 +33,10 @@ class RouterManagement {
 }
 
 export default new RouterManagement({
-  base: '/',
   routes: [
     {
-      path: '/',
-      redirect: '/home',
+      path:'/',
+      redirect: "/home"
     },
     {
       path: '/home',
@@ -63,7 +62,7 @@ export default new RouterManagement({
     },
     {
       path: '*',
-      redirect: '/home',
+      redirect: '/',
     },
   ],
 })

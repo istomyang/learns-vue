@@ -5,7 +5,7 @@
       class="carousel"
       @mousedown="down"
       @mousemove="move"
-      @mouseup="up"
+      @blur="up"
       ref="c"
     >
       <div class="w">
@@ -50,6 +50,7 @@ export default {
       galleries,
       isScroll: false,
       scrollLeft: 0,
+      btn_lock: false,
     }
   },
   components: { card },
@@ -87,32 +88,47 @@ export default {
     },
     // 全局的up会进行强制对齐
     leftClick() {
-      let speed = 20
-      this.clickMove('left', speed)
+      if (!this.btn_lock) {
+        this.btn_lock = true
+
+        this.clickMove('left')
+        this.btn_lock = false
+      }
     },
     rightClick() {
-      let speed = 20
-      this.clickMove('right', speed)
+      if (!this.btn_lock) {
+        this.btn_lock = true
+
+        this.clickMove('right')
+        this.btn_lock = false
+      }
     },
-    clickMove(direction, speed) {
+    clickMove(direction) {
+      let speed = direction === 'left' ? -20 : 20
       this.isScroll = true
       let that = this
-      if (typeof speed !== 'number') return
       if (direction !== 'left' && direction !== 'right') return
-      speed = direction === 'left' ? -1 * speed : 1 * speed
-      let distence = this.cardFullWidth
-      let countVal = 0
+      let distance = this.cardFullWidth
+      const split = []
+
+      let len = Math.floor(distance / Math.abs(speed))
+      while (len > 0) {
+        split.push(speed)
+        len--
+      }
+      split.push(distance - speed * len)
 
       function step() {
-        countVal += Math.abs(speed)
-        that.$refs.c.scrollLeft += speed
-        that.scrollLeft += speed
-        if (countVal <= distence) window.requestAnimationFrame(step)
+        that.$refs.c.scrollLeft += split.pop()
+        that.scrollLeft = that.$refs.c.scrollLeft
+        if (split.length !== 0) {
+          window.requestAnimationFrame(step)
+        } else {
+          that.up()
+        }
       }
 
       window.requestAnimationFrame(step)
-
-      this.up()
     },
   },
   computed: {
@@ -150,19 +166,24 @@ export default {
       let cfw = this.cardFullWidth
       let total = this.galleries.length * cfw + 22 * 2
 
+      let result
+
       if (!this.isDesktop) {
         // 特例情况
         let firstX = c / 2
         let lastX = total - 22 - cfw - 22
         if (sl < firstX) return 0
         if (sl > lastX) return total - c
+        result = Math.round(sl / cfw) * cfw + 10
+      } else {
+        // 算法: 利用四舍五入的特性, 把同一位置点的区域区分开来.
+        result = Math.round(sl / cfw) * cfw
       }
 
-      // 算法: 利用四舍五入的特性, 把同一位置点的区域区分开来.
-      return Math.round(sl / cfw) * cfw
+      return result
     },
     leftShow() {
-      return this.scrollLeft > 60 && this.isDesktop
+      return this.scrollLeft > 100 && this.isDesktop
     },
     rightShow() {
       return (

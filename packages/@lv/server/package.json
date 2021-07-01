@@ -12,8 +12,7 @@
   },
   "dependencies": {
     "@koa/router": "^10.0.0",
-    "@lv/server-addon-github": "1.0.0",
-    "lowdb": "^1.0.0"
+    "@lv/server-addon-github": "1.0.0"
   },
   "devDependencies": {
     "@types/koa__router": "^8.0.4",
